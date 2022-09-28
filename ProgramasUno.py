@@ -1,9 +1,8 @@
 lista = [27, 6, -50, 21, -3, 14, 16, -8, 42, 33, -21, 9]
 
-# Suma con dos if
 
-
-def maxSumaIF(s):
+def maxSumaIF(s: list):
+    # Suma con dos if
     ini, fin, tmp = 0, 0, 0
     max = 0
     suma = 0
@@ -18,10 +17,9 @@ def maxSumaIF(s):
             max = suma
     return max, s[ini: fin + 1]
 
-# Suma con dos for
 
-
-def maxSumaFOR(s):
+def maxSumaFOR(s: list):
+    # Suma con dos for
     suma = 0
     listaSuma = []
     for i in range((len(s)) + 1):
