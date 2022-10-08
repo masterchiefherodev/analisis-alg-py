@@ -8,6 +8,8 @@ lista = list(range(100))  # Creamos la lista base con números del 1 al 100
 vectorbs = sample(lista, 8)
 print("El vector a ordenar es:", vectorbs)
 
+# Complejidad O(nLog(n))
+
 
 def quickSort(lista: list):
   # Esta función ordenara el vector que le pases como argumento con el Método Quick Sort
