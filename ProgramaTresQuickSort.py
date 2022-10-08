@@ -1,46 +1,48 @@
-def quicksort(vectorbs, start=0, end=len(vectorbs) - 1):
-    """Esta función ordenara el vector que le pases como argumento 
-    con el Método Quick Sort"""
+from random import sample
+# Importamos un Método de la biblioteca random para generar listas aleatorias
 
-    def quick(vectorbs, start=0, end=len(vectorbs) - 1):
+lista = list(range(100))  # Creamos la lista base con números del 1 al 100
 
-        if start >= end:
-            return
+# Creamos una lista aleatoria con sample
+# (8 elementos aleatorios de la lista base)
+vectorbs = sample(lista, 8)
+print("El vector a ordenar es:", vectorbs)
 
-        def particion(vectorbs, start=0, end=len(vectorbs) - 1):
-            pivot = vectorbs[start]
-            menor = start + 1
-            mayor = end
+# Complejidad O(nLog(n))
 
-            while True:
-                # Si el valor actual es mayor que el pivot
-                # está en el lugar correcto (lado derecho del pivot) y podemos
-                # movernos hacia la izquierda, al siguiente elemento.
-                # También debemos asegurarnos de no haber superado el puntero bajo, ya que indica
-                # que ya hemos movido todos los elementos a su lado correcto del pivot
-                while menor <= mayor and vectorbs[mayor] >= pivot:
-                    mayor = mayor - 1
 
-                # Proceso opuesto al anterior
-                while menor <= mayor and vectorbs[menor] <= pivot:
-                    menor = menor + 1
+def quickSort(lista: list):
+  # Esta función ordenara el vector que le pases como argumento con el Método Quick Sort
+    # Se declara la función que nos ayudará al particionado de la lista para su futura llamada recursiva
+    def particionado(lista: list):
+        # Se toma como pivote el elemento 0
+        pivote = lista[0]
+        # Elementos < que
+        izq = []
+        # Elementos > que
+        der = []
+        for i in range(1, len(lista)):
+            if(lista[i] < pivote):
+                izq.append(lista[i])
+            else:
+                der.append(lista[i])
+        # Se devuelven tres parametros
+        # izq : Una lista con los elementos < pivote
+        # El pivote
+        # der: Una lista con los elementos > pivote
+        return izq, pivote, der
 
-                # Encontramos un valor sea mayor o menor y que este fuera del arreglo
-                # ó menor es más grande que mayor, en cuyo caso salimos del ciclo
-                if menor <= mayor:
-                    vectorbs[menor], vectorbs[mayor] = vectorbs[mayor], vectorbs[menor]
-                    # Continua el bucle
-                else:
-                    # Salimos del bucle
-                    break
+    # Función que hace llamadas recursivas del particionado hasta lograr la lista ordenada
+    def quickRecursivo(lista: list):
+        # Si la lista tiene un solo elemento o menos se ha lledo al caso base y se debe devolver la lista
+        if(len(lista) < 2):
+            return lista
+        # De lo contrario se iguala los tres retornos de particionado a variables con el mismo nombre pues tendrán esta misma función
+        izq, pivote, der = particionado(lista)
+        # Se llaman de forma recursiva a quicsort hasta agotar los casos
+        return quickRecursivo(izq) + [pivote] + quickRecursivo(der)
+    # Se imprime la lista ordenada
+    print("El vector ordenado es (quicksort): ", quickRecursivo(vectorbs))
 
-            vectorbs[start], vectorbs[mayor] = vectorbs[mayor], vectorbs[start]
 
-            return mayor
-
-        p = particion(vectorbs, start, end)
-        quick(vectorbs, start, p-1)
-        quick(vectorbs, p+1, end)
-
-    quick(vectorbs)
-    print("El vector ordenado es (quicksort):", vectorbs)
+quickSort(vectorbs)
