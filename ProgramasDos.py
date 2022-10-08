@@ -22,7 +22,7 @@ def comb(p1: list, p2: list, res: list):
         u.append("u")
         lista.append("u")
 
-    # Se obtienen las combinaciones totales
+    # Se obtienen las combinaciones totales y se asignan a la variable numeroCombinaciones
     numerador = math.factorial((len(r) + len(u)))
     denominador = math.factorial(len(r)) * math.factorial(len(u))
     numeroCombinaciones = int(numerador / denominador)

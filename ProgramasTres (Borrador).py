@@ -9,18 +9,17 @@ vectorbs = sample(lista, 8)
 print("El vector a ordenar es:", vectorbs)
 
 
-def bubblesort(lista: list):
-    """Esta función ordenara el vector que le pases como argumento con el Método de Bubble Sort"""
-
-  # Recorremos la lista para comparar los elementos
+def bubble(lista: list):
+    # Esta función ordenara el vector que le pases como argumento con el Método de Bubble Sort
     for i in range(len(lista)):
-        # Recorremos la lista para comparar los elementos uno a uno
-        for j in range(0, len(lista)-i-1):
-            # Revisa la matriz de 0 hasta n-i-1
-            if lista[j] > lista[j+1]:
-                lista[j], lista[j+1] = lista[j+1], lista[j]
-            # Se intercambian si el elemento encontrado es mayor
-    print("El vector ordenado es (bubblesort): ", lista)
+      # Se recorre la lista para comparar cada uno de los elementos
+        for j in range(len(lista)):
+          # Se compara con cada elemento en j
+            if lista[j] > lista[i]:
+              # Si el elemento en j es mayor al elemento en i se intercambian
+                lista[j], lista[i] = lista[i], lista[j]
+                # Se usa doble asignación para realizar el cambio
+    print("EL vector ordenado es (bubble 1):", lista)
 
 
 def selectionsort(lista: list):
@@ -107,6 +106,6 @@ def quicksort(vectorbs, start=0, end=len(vectorbs) - 1):
 
 # Test
 selectionsort(vectorbs)
-bubblesort(vectorbs)
+bubble(vectorbs)
 insertionsort(vectorbs)
 quicksort(vectorbs)
