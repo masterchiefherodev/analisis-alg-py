@@ -20,6 +20,12 @@ def maxSumaIF(s: list):
     return max, s[ini: fin + 1]   # 9n + 3 = O(n) ∴ Es una función lineal
 
 
+before = datetime.datetime.now()
+print("Suma con con dos if:  ", maxSumaIF(lista))
+after = datetime.datetime.now()
+print("Timempo: ", (after - before))
+
+
 def maxSumaFOR(s: list):
     suma = 0                              # 1
     listaSuma = []                        # 1
@@ -34,10 +40,6 @@ def maxSumaFOR(s: list):
     # 6n² + n + 2 = O(n²) ∴ Es una función cuadrática
 
 
-before = datetime.datetime.now()
-print("Suma con con dos if:  ", maxSumaIF(lista))
-after = datetime.datetime.now()
-print("Timempo: ", (after - before))
 before = datetime.datetime.now()
 print("Suma con con dos for: ", maxSumaFOR(lista))
 after = datetime.datetime.now()

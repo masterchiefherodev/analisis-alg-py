@@ -24,6 +24,9 @@ def maxSumaIF(s: list):
     return max, s[ini: fin + 1]
 
 
+print("Suma con con dos if:  ", maxSumaIF(lista))
+
+
 def maxSumaFOR(s: list):
     # Suma con dos for
     suma = 0
@@ -46,5 +49,4 @@ def maxSumaFOR(s: list):
     return suma, listaSuma
 
 
-print("Suma con con dos if:  ", maxSumaIF(lista))
 print("Suma con con dos for: ", maxSumaFOR(lista))

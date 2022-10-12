@@ -27,7 +27,7 @@ def quickSort(lista: list):
             return lista
         izq, pivote, der = particionado(lista)                      # 1
         return quickRecursivo(izq) + [pivote] + quickRecursivo(der)  # n Log(n)
-    print("El vector ordenado es (quicksort): ", quickRecursivo(vectorbs))  # 1
+    print("El vector ordenado es (quicksort): ", quickRecursivo(lista))  # 1
 # nLog(n) + 4n + 6 = O(nLog(n)) ∴ Es una función Logaritmica
 
 
